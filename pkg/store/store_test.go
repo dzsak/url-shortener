@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/dzsak/url-shortener/pkg/model"
-	_ "github.com/mattn/go-sqlite3"
 	"github.com/stretchr/testify/assert"
+	_ "modernc.org/sqlite"
 )
 
 func TestPodCRUD(t *testing.T) {

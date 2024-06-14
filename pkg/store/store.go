@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	"github.com/dzsak/url-shortener/pkg/model"
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 type Store struct {
@@ -12,7 +12,7 @@ type Store struct {
 }
 
 func New(dataSourceName string) (*Store, error) {
-	db, err := sql.Open("sqlite3", dataSourceName)
+	db, err := sql.Open("sqlite", dataSourceName)
 	if err != nil {
 		return nil, err
 	}
@@ -23,7 +23,7 @@ func New(dataSourceName string) (*Store, error) {
 }
 
 func NewTest() (*Store, error) {
-	db, err := sql.Open("sqlite3", ":memory:")
+	db, err := sql.Open("sqlite", ":memory:")
 	if err != nil {
 		return nil, err
 	}
